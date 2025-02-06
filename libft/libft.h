@@ -6,12 +6,16 @@
 /*   By: didimitr <didimitr@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 02:18:02 by adimik            #+#    #+#             */
-/*   Updated: 2025/01/28 19:10:00 by didimitr         ###   ########.fr       */
+/*   Updated: 2025/02/05 12:33:25 by didimitr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
 
 # include <limits.h>
 # include <stddef.h>
@@ -65,6 +69,13 @@ int	ft_print_p(void *p);
 int	ft_print_u(unsigned int i);
 int	ft_printf(const char *str, ...);
 int	ft_symbols(const char *c, va_list arg);
+//GNL
+char	*ft_strjoin2(char *s1, char *s2);
+char	*ft_strdup2(char *s1);
+int		ft_strchr2(const char *s, int c, int out);
+char	*get_next_line(int fd);
+int		ft_strlen2(char *str);
+char	*ft_substr2(char const *s, int start, size_t len);
 
 
 #endif

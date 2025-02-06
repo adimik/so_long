@@ -6,7 +6,7 @@ MLX_LIB = $(MLX_DIR)/libmlx_Linux.a
 LIBFT_DIR = libft
 LIBFT_LIB = $(LIBFT_DIR)/libft.a
 
-SRCS = main.c
+SRCS = main.c map_size.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(LIBFT_LIB) $(MLX_LIB) $(NAME)
