@@ -6,7 +6,7 @@
 /*   By: didimitr <didimitr@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:27:24 by didimitr          #+#    #+#             */
-/*   Updated: 2025/02/06 13:12:19 by didimitr         ###   ########.fr       */
+/*   Updated: 2025/02/07 12:35:29 by didimitr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,34 +64,35 @@ int	map_height(int fd)
 		free(line);
 		line = get_next_line(fd);
 	}
+
 	return(i);	
 }
 
 void map_size(char *map)
 {
 	int file;
-	t_game	game;
+	t_game	*game;
 
-	game = *get_data();
+	game = get_data();
 	file = open(map, O_RDONLY);
 	if (file == -1)
 	{
 		printf("Error, fail to open map");
-		game.map_size.width = -1;
-		game.map_size.height = -1;
+		game->map_size.width = -1;
+		game->map_size.height = -1;
 		return;
 	}
-	game.map_size.width = map_width(file);
+	game->map_size.width = map_width(file);
 	close(file);
 	file = open(map, O_RDONLY);
 	if (file == -1)
 	{
 
 		printf("Error, fail to open map");
-		game.map_size.width = -1;
-		game.map_size.height = -1;
+		game->map_size.width = -1;
+		game->map_size.height = -1;
 		return;
 	}
-	game.map_size.height = map_height(file);
+	game->map_size.height = map_height(file);
 	close(file);
 }

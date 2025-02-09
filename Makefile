@@ -6,7 +6,7 @@ MLX_LIB = $(MLX_DIR)/libmlx_Linux.a
 LIBFT_DIR = libft
 LIBFT_LIB = $(LIBFT_DIR)/libft.a
 
-SRCS = main.c map_size.c
+SRCS = main.c map_size.c game.c map_array.c map_data.c map_ass.c map_put_img.c transparency.c movement.c valid_move.c exit_move.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(LIBFT_LIB) $(MLX_LIB) $(NAME)
@@ -24,7 +24,6 @@ $(NAME): $(OBJS) $(MLX_LIB) $(LIBFT_LIB)
 
 clean:
 	rm -f $(OBJS)
-	make -C $(MLX_DIR) clean
 	make -C $(LIBFT_DIR) clean
 
 fclean: clean
@@ -33,3 +32,6 @@ fclean: clean
 	make -C $(LIBFT_DIR) fclean
 	
 re: fclean all
+
+debug: clean
+	$(MAKE) CFLAGS='-Wall -Wextra -Werror -g' all
