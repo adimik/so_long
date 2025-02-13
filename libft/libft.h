@@ -6,7 +6,7 @@
 /*   By: didimitr <didimitr@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 02:18:02 by adimik            #+#    #+#             */
-/*   Updated: 2025/02/05 12:33:25 by didimitr         ###   ########.fr       */
+/*   Updated: 2025/02/13 17:42:10 by didimitr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 # endif
 
 # include <limits.h>
+# include <stdarg.h>
 # include <stddef.h>
 # include <stdint.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdarg.h>
-//LIBFT
+// LIBFT
 int		ft_isprint(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);
@@ -59,23 +59,22 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-//PRINTF
-int	ft_print_d(int n);
-int	ft_print_c(int c);
-int	ft_print_s(char *c);
-int	ft_print_x(unsigned long int n);
-int	ft_print_xx(long n);
-int	ft_print_p(void *p);
-int	ft_print_u(unsigned int i);
-int	ft_printf(const char *str, ...);
-int	ft_symbols(const char *c, va_list arg);
-//GNL
+// PRINTF
+int		ft_print_d(int n);
+int		ft_print_c(int c);
+int		ft_print_s(char *c);
+int		ft_print_x(unsigned long int n);
+int		ft_print_xx(long n);
+int		ft_print_p(void *p);
+int		ft_print_u(unsigned int i);
+int		ft_printf(const char *str, ...);
+int		ft_symbols(const char *c, va_list arg);
+// GNL
 char	*ft_strjoin2(char *s1, char *s2);
 char	*ft_strdup2(char *s1);
 int		ft_strchr2(const char *s, int c, int out);
 char	*get_next_line(int fd);
 int		ft_strlen2(char *str);
 char	*ft_substr2(char const *s, int start, size_t len);
-
 
 #endif

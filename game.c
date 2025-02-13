@@ -6,15 +6,15 @@
 /*   By: didimitr <didimitr@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:02:14 by didimitr          #+#    #+#             */
-/*   Updated: 2025/02/13 16:32:35 by didimitr         ###   ########.fr       */
+/*   Updated: 2025/02/13 18:39:19 by didimitr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static	t_game	game_data;
+static t_game	g_game_data;
 
 t_game	*get_data(void)
 {
-	return(&game_data);
+	return (&g_game_data);
 }

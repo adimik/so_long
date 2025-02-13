@@ -6,7 +6,7 @@
 /*   By: didimitr <didimitr@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 09:48:29 by didimitr          #+#    #+#             */
-/*   Updated: 2025/02/13 16:30:24 by didimitr         ###   ########.fr       */
+/*   Updated: 2025/02/13 17:44:40 by didimitr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	**map_arr(char *map)
 
 	game = get_data();
 	map_size(map);
-	arr = map_arr_mal(game->map_size);
+	arr = map_arr_mal(game->mize);
 	if (arr == NULL)
 		return (NULL);
 	if (!map_data(arr, map))
@@ -48,6 +48,7 @@ char	**map_arr_mal(t_map_size size)
 	}
 	return (arr);
 }
+
 void	free_map(char **arr, int i)
 {
 	int	j;

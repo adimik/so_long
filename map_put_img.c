@@ -6,41 +6,49 @@
 /*   By: didimitr <didimitr@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 12:56:18 by didimitr          #+#    #+#             */
-/*   Updated: 2025/02/13 16:30:44 by didimitr         ###   ########.fr       */
+/*   Updated: 2025/02/13 17:49:11 by didimitr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	map_put_img()
+void	tw(void *img, int x, int y)
 {
-	t_game	*game_d;
-	
-	int i;
-	int j;
-	game_d = get_data();
+	t_game	*g;
+
+	g = get_data();
+	mlx_put_image_to_window(g->mlx, g->win, img, x, y);
+}
+
+void	map_put_img(void)
+{
+	t_game	*g;
+	int		i;
+	int		j;
+
+	g = get_data();
 	i = 0;
 	j = 0;
-	while(j < game_d->map_size.h)
+	while (j < g->mize.h)
 	{
-		while(i < game_d->map_size.w)
+		while (i < g->mize.w)
 		{
-			if(game_d->arr[j][i] == '0' || game_d->arr[j][i] == 'P'|| game_d->arr[j][i] == 'C'|| game_d->arr[j][i] == 'E')
-				mlx_put_image_to_window(game_d->mlx, game_d->win, game_d->floor.img, i * 32, j * 32);
-			if(game_d->arr[j][i] == '1')
-				mlx_put_image_to_window(game_d->mlx, game_d->win, game_d->wall.img, i * 32, j * 32);
-			if(game_d->arr[j][i] == 'P')
-				mlx_put_image_to_window(game_d->mlx, game_d->win, game_d->character.img, i * 32, j * 32);
-			if(game_d->arr[j][i] == 'C')
-				mlx_put_image_to_window(game_d->mlx, game_d->win, game_d->collect.img, i * 32, j * 32);
-			if(game_d->exit_pos.x == i)
-				mlx_put_image_to_window(game_d->mlx, game_d->win, game_d->exit.img, i * 32, j * 32);
+			tw(g->floor.img, i * 32, j * 32);
+			if (g->arr[j][i] == '1')
+				tw(g->wall.img, i * 32, j * 32);
+			if (g->arr[j][i] == 'P')
+				tw(g->character.img, i * 32, j * 32);
+			if (g->arr[j][i] == 'C')
+				tw(g->collect.img, i * 32, j * 32);
+			if (g->exit_pos.x == i && g->exit_pos.y == j && g->obj.coins == 0)
+				tw(g->exit.img, i * 32, j * 32);
 			i++;
 		}
 		i = 0;
 		j++;
 	}
 }
+
 void	load_textures(void)
 {
 	t_game	*data;
