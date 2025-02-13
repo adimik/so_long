@@ -6,7 +6,7 @@
 /*   By: didimitr <didimitr@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 12:56:18 by didimitr          #+#    #+#             */
-/*   Updated: 2025/02/09 16:20:28 by didimitr         ###   ########.fr       */
+/*   Updated: 2025/02/13 16:30:44 by didimitr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	map_put_img()
 	game_d = get_data();
 	i = 0;
 	j = 0;
-	while(j < game_d->map_size.height)
+	while(j < game_d->map_size.h)
 	{
-		while(i < game_d->map_size.width)
+		while(i < game_d->map_size.w)
 		{
 			if(game_d->arr[j][i] == '0' || game_d->arr[j][i] == 'P'|| game_d->arr[j][i] == 'C'|| game_d->arr[j][i] == 'E')
 				mlx_put_image_to_window(game_d->mlx, game_d->win, game_d->floor.img, i * 32, j * 32);
@@ -33,7 +33,7 @@ void	map_put_img()
 				mlx_put_image_to_window(game_d->mlx, game_d->win, game_d->character.img, i * 32, j * 32);
 			if(game_d->arr[j][i] == 'C')
 				mlx_put_image_to_window(game_d->mlx, game_d->win, game_d->collect.img, i * 32, j * 32);
-			if(game_d->arr[j][i] == 'E')
+			if(game_d->exit_pos.x == i)
 				mlx_put_image_to_window(game_d->mlx, game_d->win, game_d->exit.img, i * 32, j * 32);
 			i++;
 		}

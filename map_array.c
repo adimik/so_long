@@ -6,7 +6,7 @@
 /*   By: didimitr <didimitr@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 09:48:29 by didimitr          #+#    #+#             */
-/*   Updated: 2025/02/07 15:50:48 by didimitr         ###   ########.fr       */
+/*   Updated: 2025/02/13 16:30:24 by didimitr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,16 @@ char	**map_arr_mal(t_map_size size)
 	char	**arr;
 
 	i = 0;
-	arr = malloc(size.height * sizeof(char *));
-	while (i < size.height)
+	arr = malloc(size.h * sizeof(char *));
+	while (i < size.h)
 	{
-		arr[i] = malloc((size.width + 1) * sizeof(char));
+		arr[i] = malloc((size.w + 1) * sizeof(char));
 		if (arr[i] == NULL)
 		{
 			free_map(arr, i);
 			return (NULL);
 		}
-		arr[i][size.width] = '\0';
+		arr[i][size.w] = '\0';
 		i++;
 	}
 	return (arr);

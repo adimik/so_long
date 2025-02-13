@@ -6,7 +6,7 @@
 /*   By: didimitr <didimitr@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 13:04:48 by didimitr          #+#    #+#             */
-/*   Updated: 2025/02/09 18:08:53 by didimitr         ###   ########.fr       */
+/*   Updated: 2025/02/13 16:30:17 by didimitr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,16 @@ int	main(void)
 	t_game	*game_data;
 	int		i;
 
+
 	i = 0;
 
 	game_data = get_data();
 	game_data->mlx = mlx_init();
 	load_textures();
-	game_data->arr = map_arr("maps/map1.ber");
-	game_data->win = mlx_new_window(game_data->mlx, game_data->map_size.width * 32, game_data->map_size.height * 32, "Test");
+	game_data->arr = map_arr("maps/map.ber");
+	map_check();
+	printf("%d, %d, %d\n", game_data->obj.character, game_data->obj.coins, game_data->obj.exit);
+	game_data->win = mlx_new_window(game_data->mlx, game_data->map_size.w * 32, game_data->map_size.h * 32, "Test");
 	mlx_hook(game_data->win, 17, 1L << 0, closewin, NULL);
 	mlx_hook(game_data->win, 2, 1L << 0, handle_keypress, NULL);
 	mlx_loop_hook(game_data->mlx, game, NULL);

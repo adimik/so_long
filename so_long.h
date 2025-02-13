@@ -6,7 +6,7 @@
 /*   By: didimitr <didimitr@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:38:31 by didimitr          #+#    #+#             */
-/*   Updated: 2025/02/09 20:18:55 by didimitr         ###   ########.fr       */
+/*   Updated: 2025/02/13 16:31:51 by didimitr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,27 @@ typedef struct s_data
 
 typedef struct s_map_size
 {
-	int	width;
-	int height;
+	int	w;
+	int h;
 } t_map_size;
+
+typedef	struct s_obj
+{
+	int	character;
+	int	coins;
+	int	exit;
+}t_obj;
+
+typedef struct s_exit_pos
+{
+	int y;
+	int x;
+}	t_exit_pos;
 
 typedef struct s_game
 {
+	t_exit_pos exit_pos;
+	t_obj	obj;
 	t_map_size	map_size;
 	char	**arr;
 	t_data	floor;
@@ -83,5 +98,10 @@ bool	valid_exit_down(t_p_pos pos);
 bool	valid_exit_left(t_p_pos pos);
 bool	valid_exit_right(t_p_pos pos);
 t_p_pos	get_p_pos();
+void	map_check(void);
+void	count_map_obj(void);
+bool	check_map_obj(void);
+bool	check_surr(void);
+int	coin_access(t_game *data, int y, int x);
 
 #endif

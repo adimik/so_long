@@ -6,7 +6,7 @@
 /*   By: didimitr <didimitr@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 17:28:34 by didimitr          #+#    #+#             */
-/*   Updated: 2025/02/09 20:22:37 by didimitr         ###   ########.fr       */
+/*   Updated: 2025/02/13 16:30:39 by didimitr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	move_up(void)
 		data->arr[pos.y][pos.x] = '0';
 		data->arr[pos.y - 1][pos.x] = 'P'; 
 	}
-	
+
 }
 
 void	move_down(void)
@@ -85,9 +85,9 @@ t_p_pos	get_p_pos()
 	pos.x = 0;
 	pos.y = 0;
 	data = get_data();
-	while(pos.y < data->map_size.height)
+	while(pos.y < data->map_size.h)
 	{
-		while (pos.x < data->map_size.width)
+		while (pos.x < data->map_size.w)
 		{
 			if(data->arr[pos.y][pos.x] == 'P')
 			{
