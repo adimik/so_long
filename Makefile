@@ -1,6 +1,6 @@
 NAME = so_long
 CC = clang
-CFLAGS = -Wall -Wextra -Werror -Ofast -march=native -ffast-math -flto
+CFLAGS = -g
 MLX_DIR = minilibx-linux
 MLX_LIB = $(MLX_DIR)/libmlx_Linux.a
 LIBFT_DIR = libft

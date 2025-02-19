@@ -6,7 +6,7 @@
 /*   By: didimitr <didimitr@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 13:04:48 by didimitr          #+#    #+#             */
-/*   Updated: 2025/02/13 19:23:00 by didimitr         ###   ########.fr       */
+/*   Updated: 2025/02/19 20:30:57 by didimitr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,23 +28,23 @@ int	game(void)
 
 int	closewin(void)
 {
-	t_game	*sex;
+	t_game	*data;
 	int		i;
 
-	sex = get_data();
+	data = get_data();
 	i = 0;
-	while (i < sex->mize.h)
+	while (i < data->mize.h)
 	{
-		free(sex->arr[i]);
+		free(data->arr[i]);
 		i++;
 	}
-	free(sex->arr);
-	mlx_destroy_image(sex->mlx, sex->character.img);
-	mlx_destroy_image(sex->mlx, sex->exit.img);
-	mlx_destroy_image(sex->mlx, sex->floor.img);
-	mlx_destroy_image(sex->mlx, sex->collect.img);
-	mlx_destroy_image(sex->mlx, sex->wall.img);
-	mlx_cleanup(sex->mlx);
+	free(data->arr);
+	mlx_destroy_image(data->mlx, data->character.img);
+	mlx_destroy_image(data->mlx, data->exit.img);
+	mlx_destroy_image(data->mlx, data->floor.img);
+	mlx_destroy_image(data->mlx, data->collect.img);
+	mlx_destroy_image(data->mlx, data->wall.img);
+	mlx_cleanup(data->mlx);
 	exit(1);
 }
 
@@ -84,4 +84,29 @@ int	main(int argc, char **argv)
 	mlx_loop_hook(game_data->mlx, game, NULL);
 	mlx_loop(game_data->mlx);
 	return (0);
+}
+
+void	name_valid(char *name)
+{
+	unsigned int	i;
+	unsigned int	l;
+	char			*ptr;
+
+	i = 0;
+	l = ft_strlen(name);
+	ptr = name;
+	while (ptr < (name + l - 4))
+	{
+		if (!ft_isprint(*ptr))
+		{
+			ft_printf("ERROR: wrong map name.\n");
+			exit(1);
+		}
+		ptr++;
+	}
+	if (ft_strncmp(name + l - 4, ".ber", 4))
+	{
+		ft_printf("ERROR: wrong map name.\n");
+		exit(1);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: didimitr <didimitr@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:38:31 by didimitr          #+#    #+#             */
-/*   Updated: 2025/02/13 19:40:48 by didimitr         ###   ########.fr       */
+/*   Updated: 2025/02/19 20:29:56 by didimitr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_obj
 	int			character;
 	int			coins;
 	int			exit;
+	int			free_space;
 }				t_obj;
 
 typedef struct s_exit_pos
@@ -103,4 +104,6 @@ void			check_map_obj(void);
 void			check_surr(void);
 int				coin_access(t_game *data, int y, int x);
 int				closewin(void);
+void			name_valid(char *name);
+void			valid_obj(int i, int j);
 #endif

@@ -6,7 +6,7 @@
 /*   By: didimitr <didimitr@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:10:24 by didimitr          #+#    #+#             */
-/*   Updated: 2025/02/13 17:44:40 by didimitr         ###   ########.fr       */
+/*   Updated: 2025/02/19 20:30:06 by didimitr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,19 @@ void	map_data_apnd(char **arr, int file)
 		i = 0;
 		j++;
 		free(line);
+	}
+}
+
+void	valid_obj(int j, int i)
+{
+	t_game	*data;
+
+	data = get_data();
+	if (data->arr[j][i] != 'P' && data->arr[j][i] != 'E'
+		&& data->arr[j][i] != 'C' && data->arr[j][i] != '0'
+		&& data->arr[j][i] != '1')
+	{
+		ft_printf("ERROR: invalid object in map.'%c'\n", data->arr[j][i]);
+		closewin();
 	}
 }

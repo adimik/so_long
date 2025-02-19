@@ -6,7 +6,7 @@
 /*   By: didimitr <didimitr@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:27:24 by didimitr          #+#    #+#             */
-/*   Updated: 2025/02/13 19:10:13 by didimitr         ###   ########.fr       */
+/*   Updated: 2025/02/19 20:29:58 by didimitr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,43 +28,51 @@ int	map_width(int fd)
 	int		j;
 	char	*line;
 
-	i = 0;
-	j = 0;
+	i = -1;
 	line = get_next_line(fd);
-	if ((line) == NULL)
-	{
-		free(line);
-		return (0);
-	}
-	i = line_lenght(line);
 	while (line != NULL)
 	{
 		j = line_lenght(line);
-		if (i != j)
+		if (j > 0)
 		{
-			free(line);
-			return (0);
+			if (i < 0)
+				i = j;
+			else if (j != i)
+				return (free(line), 0);
 		}
 		free(line);
 		line = get_next_line(fd);
 	}
-	return (i);
+	if (i < 0)
+		return (0);
+	else
+		return (i);
 }
 
 int	map_height(int fd)
 {
-	int		i;
+	int		total;
+	int		empty_count;
+	int		len;
 	char	*line;
 
-	i = 0;
+	total = 0;
+	empty_count = 0;
 	line = get_next_line(fd);
-	while (line != NULL)
+	while (line)
 	{
-		i++;
+		len = line_lenght(line);
+		if (len > 0)
+		{
+			total += 1 + empty_count;
+			empty_count = 0;
+		}
+		else
+			empty_count++;
 		free(line);
 		line = get_next_line(fd);
 	}
-	return (i);
+	return (total);
 }
 
 void	map_size(char *map)
